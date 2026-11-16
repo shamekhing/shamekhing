@@ -89,20 +89,38 @@ I'm a multidisciplinary AI and software engineer based in **Linz, Austria**, wit
 
 ## 💼 Experience
 
-- **Junior Research Engineer**, [AIT Austrian Institute of Technology](https://www.ait.ac.at/en/) *(Oct 2024 – Mar 2026)*: AI system integration, monitoring systems, real-time interfaces
-- **Freelance Software Developer** *(Mar 2026 – present)*: C++ and Python tools, computer vision, simulation, FPGA work
-- **Earlier:** R&D Software Engineer at Mixed Dimensions (3D geometry processing), Research Assistant (quantum key distribution software) and Teaching Assistant at JKU, Software Engineer at Simma, Intern at Sequality
+- **Freelance Software Developer** *(March 2026 - present)*: C++ applications, Python tools, computer vision, LLM-assisted workflows, simulation, verification, and FPGA exploration
+- **Junior Research Engineer**, [Austrian Institute of Technology (AIT)](https://www.ait.ac.at/en/), Technology Experience Department *(October 2024 - March 2026)*: AI system integration, data-driven monitoring systems, real-time AI interfaces, reliability and evaluation, and research-to-application transfer
+- **Teaching Assistant**, [JKU Institute of Computer Graphics](https://www.jku.at/institut-fuer-computergrafik/) *(October 2023 - February 2024)*: practical support in computer vision, machine learning, deep learning, data analysis, and system modelling
+- **Software Developer Intern**, [Sequality](https://www.sequality.at/en/your-partner-for-technical-software/) *(October 2023 - November 2023)*: industrial software interfaces with C++ and Qt
+- **Research Assistant**, [JKU Institute of Semiconductor and Solid State Physics](https://www.jku.at/en/institute-of-semiconductor-and-solid-state-physics/) *(August 2022 - February 2023)*: scientific software for entangled-photon quantum key distribution and secure distributed systems
+- **Software Engineer**, [Simma Software](https://www.simma.io/) *(November 2021 - April 2022)*: Selenium automation, integration workflows, and automated testing tools
+- **R&D Software Engineer**, [Mixed Dimensions](https://integralrealitylabs.com/) *(February 2020 - November 2021)*: geometry-processing algorithms, computational models, performance optimisation, and repair of damaged 3D models for commercial printing
+- **Mechatronics Intern**, Bahbish *(January 2019 - April 2019)*: microscope automation and computer-aided design
 
 ## 🎓 Education
 
-- **MSc Artificial Intelligence**, Johannes Kepler University Linz *(2024 – present)*
-- **BSc Mechatronics Engineering**, University of Jordan *(2014 – 2019)*. Thesis: V2V-based cooperative vehicle tracking and collision warning
+- **MSc Artificial Intelligence**, [Johannes Kepler University Linz](https://www.jku.at/en/), Austria *(March 2024 - present)*
+  - Machine learning, deep learning, recurrent networks, reinforcement learning, computer vision, probabilistic models, parallel computing, signal processing, adaptive systems, and quantum information
+- **BSc Mechatronics Engineering**, [University of Jordan](https://www.ju.edu.jo/), Jordan *(July 2014 - June 2019)*
+  - Control theory, robotics, automation, embedded systems, digital logic, electronics, PLCs, sensors, actuators, industrial process control, and CAD
+  - **Bachelor's thesis:** Intelligent transportation using vehicle-to-vehicle communication for cooperative vehicle tracking and collision warnings
 
 📄 Full details in my [Europass CV](./Europass_CV/).
 
 ## 🏆 Competitive Programming
 
-C++ in national, regional and international contests, including **IEEEXtreme 2019: 93rd of ~9,400** (top 1%), **ACPC Africa & Arab 2019: 28th**, and **Jordan CPC 2019: 5th**. [Certificates](./Certificates/).
+I competed in national, regional, and international programming contests using **C++**, with a focus on algorithms, data structures, and problem solving.
+
+| Competition | Result |
+|---|---:|
+| IEEEXtreme 2019 | 93rd of ~9,400 participants |
+| Africa & Arab Collegiate Programming Contest 2019 | 28th place |
+| Jordan Collegiate Programming Contest 2019 | 5th place |
+| Jordan Collegiate Programming Contest 2018 | 13th place |
+| Arab Collegiate Programming Contest 2017 | 92nd place |
+
+[Certificates](./Certificates/)
 
 <div align="center">
   <br />
