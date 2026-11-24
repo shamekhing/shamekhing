@@ -1,0 +1,8 @@
+graph LR
+  TASK["Identify the task"] --> ENV["Probe installed tools"]
+  ENV --> REF["Read the task guide"]
+  REF --> DO["Run the checked scripts and recipes"]
+  DO --> CHECK{"Tests pass?"}
+  CHECK -->|no| FIX["Fix using recorded pitfalls"] --> DO
+  CHECK -->|yes| BOARD["Build and test on the real board"]
+  BOARD --> LESSON["Feed lessons back into the guides"]

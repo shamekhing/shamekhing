@@ -1,0 +1,6 @@
+graph LR
+  ENV["ViZDoom deathmatch"] --> BC["Behaviour cloning from recorded human play"]
+  BC --> RL["PPO / DQN training from reward"]
+  RL --> EVAL["Evaluation matches"]
+  EVAL --> EXP["Export the trained agent (ONNX)"]
+  EVAL --> GIF["Recorded gameplay video"]

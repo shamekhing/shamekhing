@@ -1,0 +1,30 @@
+flowchart LR
+  PC["Program counter<br/>cpu_pc"] --> FETCH["Instruction fetch<br/>read-only bus master"]
+  FETCH --> IBUF["Instruction buffer<br/>32-bit word"]
+  IBUF --> DEC["Decoder<br/>cpu_decoder"]
+  DEC -->|"register enables<br/>ALU op · flags · memory control"| CTRL["Control"]
+  DEC --> RF["Register file<br/>64 × 32-bit · 2 read · 1 write<br/>r0 hardwired to zero"]
+  RF --> OPA["Operand A<br/>rs1 value"]
+  RF --> OPB["Operand B mux<br/>rs2 value / immediate"]
+  IBUF --> IMM["Immediate word<br/>next instruction word"]
+  IMM --> OPB
+  OPA --> ALU["ALU<br/>multi-cycle, bit-serial"]
+  OPB --> ALU
+  subgraph ALUSUB["ALU sub-units, one selected per opcode"]
+    ARITH["Arithmetic<br/>add · sub · mul · div"]
+    LOGIC["Logic<br/>not · and · or · xor"]
+    SHIFT["Shift / rotate<br/>shl · shr · sar · rol · ror"]
+    CMP["Comparator<br/>eq · ne · signed / unsigned order"]
+  end
+  ALU --- ALUSUB
+  ALU --> WB["Writeback mux<br/>ALU result / load data"]
+  WB --> RF
+  ALU --> FLAGS["STATUS flags<br/>Z · N · C · V · DZ"]
+  FLAGS --> DEC
+  OPA --> BR["Branch unit<br/>cpu_branch"]
+  OPB --> BR
+  DEC -->|branch condition| BR
+  BR -->|"redirect + target"| PC
+  CTRL --> ALU
+  CTRL --> WB
+  CTRL --> FLAGS

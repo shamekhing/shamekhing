@@ -1,0 +1,20 @@
+flowchart LR
+  subgraph MASTERS["Bus masters"]
+    IF["CPU instruction fetch<br/>slot 0"]
+    DM["CPU data<br/>slot 1"]
+    LD["Dataset loader<br/>UART / microSD · slot 2"]
+    DISP["Display fetcher<br/>slot 3"]
+  end
+  IF --> ARB["4-client round-robin arbiter<br/>32-bit · byte-addressed<br/>grant held through stalls"]
+  DM --> ARB
+  LD --> ARB
+  DISP --> ARB
+  ARB --> DECODE["Address decode + alignment checks"]
+  DECODE --> BSRAM["32 KiB BSRAM<br/>0x0000_0000-0x0000_7FFF<br/>boot from hex"]
+  DECODE --> DDR3["128 MiB DDR3<br/>0x0800_0000-0x0FFF_FFFF<br/>800 MT/s"]
+  BSRAM --> CPU["CPU"]
+  DDR3 --> CPU
+  DDR3 --> VIEW["HDMI 720p60<br/>448 × 448 digit"]
+  LD --> DDR3
+  DISP --> VIEW
+  CLK["clk27: CPU · bus · BSRAM<br/>pclk: DDR3 controller<br/>pix_clk: HDMI raster"] -.-> ARB

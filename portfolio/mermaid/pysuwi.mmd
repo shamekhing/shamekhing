@@ -1,0 +1,5 @@
+graph LR
+  CMD["You type a subcommand"] --> SCAN["Scan the plugins folder"]
+  SCAN --> RUN["Every file there is a command: run it"]
+  RUN --> RES["Result in the terminal"]
+  INST["Installer: pinned, checked versions"] -.-> SCAN

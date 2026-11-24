@@ -1,0 +1,5 @@
+graph LR
+  VID["Video frames"] --> DET["Detect objects per frame (YOLOv5)"]
+  DET --> ASSOC["Associate detections across frames<br/>(motion + appearance)"]
+  ASSOC --> TRACKS["Maintain track IDs (Deep SORT)"]
+  TRACKS --> OUT["Rendered tracks with boxes and IDs"]

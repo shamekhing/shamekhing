@@ -1,0 +1,6 @@
+graph LR
+  MESH["Mesh the domain around the cylinder"] --> PRED["Predict velocity for one time step"]
+  PRED --> CORR["Project pressure to satisfy continuity"]
+  CORR --> FORCE["Integrate surface forces (Cd, Cl)"]
+  FORCE -->|next step| PRED
+  FORCE --> OUT["Write field snapshots and force traces"]

@@ -1,0 +1,14 @@
+graph LR
+  ENTRY["main.cpp<br/>entry point"] --> APP["App shell<br/>window · input · screens"]
+  APP --> DB["Card database<br/>cards.json, runtime fetch"]
+  DB --> EDITOR["Deck editor<br/>search · preview · 40-card deck"]
+  APP --> DUEL["Duel screen<br/>hotseat"]
+  subgraph RULES["Rules engine: classic ruleset"]
+    ACT["Action vocabulary<br/>213 actions"] --> GATE["Legal-action gates<br/>engine predicates"]
+    GATE --> CAT["Classic effect catalog<br/>name-keyed resolution"]
+    CAT --> CHAIN["Chains · Spell Speeds<br/>battle replays"]
+    CHAIN --> SNAP["Undo snapshots<br/>bounded stack"]
+  end
+  DUEL --> ACT
+  ACT --> FIELD["Field · zones · positions"]
+  APP --> WEB["Web build<br/>Emscripten"]

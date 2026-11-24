@@ -1,0 +1,10 @@
+graph LR
+  DS["Digit dataset<br/>(from a PC or a microSD card)"] --> LOAD["Dataset loader"]
+  subgraph CHIP["One FPGA chip: a complete computer built from scratch"]
+    LOAD --- BUS["System bus: instruction and data traffic"]
+    BOOT["Boot memory: 32 KiB BSRAM"] --- BUS
+    CPU["CPU core: fetch, decode, execute"] --- BUS
+    RAM["Working memory: 128 MiB DDR3"] --- BUS
+    BUS --> DISP["Display engine"]
+  end
+  DISP --> HDMI["HDMI screen: one digit at a time"]

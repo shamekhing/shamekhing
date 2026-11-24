@@ -1,0 +1,5 @@
+graph LR
+  RAW["Noisy GPS points"] --> PRED["Predict next state"]
+  PRED --> MIX["Correct with the GPS measurement<br/>(Kalman gain)"]
+  MIX --> OUT["Smoothed position and velocity"]
+  OUT -->|next fix| PRED

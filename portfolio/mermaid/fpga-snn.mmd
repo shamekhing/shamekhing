@@ -1,0 +1,6 @@
+graph LR
+  IMG["MNIST digit"] --> ENC["Encoder: pixels to differential-time events"]
+  ENC --> SCHED["Scheduler: order events by time"]
+  SCHED --> NEU["128 LIF neurons: integrate and fire"]
+  NEU --> OUT["Spike counts: predicted class"]
+  TRAIN["Python training app"] -.->|learned weights| NEU

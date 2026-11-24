@@ -1,0 +1,6 @@
+flowchart LR
+  P1["Phone A"] --> APP["Chat app: discover · chat · profile"]
+  APP --> SEC["End-to-end encryption, keys never leave the phone"]
+  SEC --> STO["Encrypted message store"]
+  STO --> T["Direct links: Wi-Fi Direct · LAN · Bluetooth, strongest wins"]
+  T --> P2["Phone B"]

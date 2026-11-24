@@ -1,0 +1,19 @@
+stateDiagram-v2
+  [*] --> Fetch
+  Fetch --> Decode: instruction word in buffer
+  Fetch --> Fault: instruction-bus error
+  Decode --> Fault: reserved bits set
+  Decode --> Capture: decoded control
+  Capture --> Run: latch rs1 / rs2 / immediate
+  Run --> Memory: load or store
+  Run --> Retire: ALU done
+  Memory --> Retire: data-bus handshake
+  Memory --> Fault: bus error
+  Retire --> Fetch: PC += 4 (or += 8 with immediate)
+  Retire --> Fetch: branch redirect
+  Fault --> [*]: sticky until reset
+  note right of Capture
+    Core FSM: Idle → Capture → Run →
+    Wait (memory) → Retire.
+    An immediate is a second 32-bit word.
+  end note

@@ -1,0 +1,5 @@
+graph LR
+  IN["600-point dataset"] --> STEP["Shift each point to its neighbourhood mean"]
+  STEP --> CONV{"Converged?"}
+  CONV -->|no| STEP
+  CONV -->|yes| CLUS["Points that converge together form a cluster"]
