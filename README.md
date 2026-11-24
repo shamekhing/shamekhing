@@ -69,6 +69,8 @@ I competed in national, regional, and international programming contests using *
 
 ## 🚀 Projects
 
+**Index:** [cfd-sim](#cfd-sim) · [cv_deepSort](#cv_deepsort) · [OpenJoey2](#openjoey2) · [doomai](#doomai) · [fpga-snn](#fpga-snn) · [Ahoy](#ahoy) · [Kalman GPS Tracking](#kalman-gps-tracking) · [Mean-Shift Clustering](#mean-shift-clustering) · [cooda](#cooda) · [fpga-usb](#fpga-usb) · [fpga-skill](#fpga-skill) · [pysuwi](#pysuwi)
+
 ### [cfd-sim](https://github.com/shamekhing/cfd-sim)
 
 A computational fluid dynamics engine written from scratch. It simulates air flowing around a cylinder by solving the incompressible Navier-Stokes equations on a staggered grid with the SIMPLE algorithm, and it reproduces the Kármán vortex street shown in the capture. Optional CUDA acceleration.
@@ -154,6 +156,72 @@ graph LR
   RL --> EVAL["Evaluation matches"]
   EVAL --> EXP["Export the trained agent (ONNX)"]
   EVAL --> GIF["Recorded gameplay video"]
+```
+
+### [fpga-snn](https://github.com/shamekhing/fpga-snn)
+
+An experimental spiking neural network accelerator for MNIST, where neurons carry information as spike timing instead of numbers. A Python trainer learns the weights and a SystemVerilog datapath replays them on a Gowin FPGA.
+
+`SystemVerilog` `Python` `SNN`
+
+<div align="center"><img src="./portfolio/fpga-snn/waveform.gif" alt="Waveform from the fpga-snn RTL simulation" width="640" /></div>
+
+```mermaid
+graph LR
+  IMG["MNIST digit"] --> ENC["Encoder: pixels to differential-time events"]
+  ENC --> SCHED["Scheduler: order events by time"]
+  SCHED --> NEU["128 LIF neurons: integrate and fire"]
+  NEU --> OUT["Spike counts: predicted class"]
+  TRAIN["Python training app"] -.->|learned weights| NEU
+```
+
+### [Ahoy](https://github.com/shamekhing/Ahoy)
+
+A privacy-first messaging app in Flutter for phones that are near each other. It picks the best direct link (Wi-Fi Direct, LAN or Bluetooth), encrypts messages end to end so keys never leave the phone, and needs no server or account.
+
+`Dart` `Flutter` `Privacy`
+
+<div align="center"><img src="./portfolio/ahoy/screens.gif" alt="Ahoy chat app running on a phone" width="320" /></div>
+
+```mermaid
+flowchart LR
+  P1["Phone A"] --> APP["Chat app: discover · chat · profile"]
+  APP --> SEC["End-to-end encryption, keys never leave the phone"]
+  SEC --> STO["Encrypted message store"]
+  STO --> T["Direct links: Wi-Fi Direct · LAN · Bluetooth, strongest wins"]
+  T --> P2["Phone B"]
+```
+
+### [Kalman GPS Tracking](https://github.com/shamekhing/Kalman-Filter-for-GPS-Tracking)
+
+A header-only C++ Kalman filter that turns jumpy GPS fixes into a smooth route. It predicts where the vehicle should be, blends that with each GPS measurement, and outputs a cleaned position and velocity track.
+
+`C++` `Eigen` `State estimation`
+
+<div align="center"><img src="./portfolio/Kalman-Filter-for-GPS-Tracking/track.gif" alt="Kalman-filtered track against raw GPS samples" width="560" /></div>
+
+```mermaid
+graph LR
+  RAW["Noisy GPS points"] --> PRED["Predict next state"]
+  PRED --> MIX["Correct with the GPS measurement<br/>(Kalman gain)"]
+  MIX --> OUT["Smoothed position and velocity"]
+  OUT -->|next fix| PRED
+```
+
+### [Mean-Shift Clustering](https://github.com/shamekhing/Mean-Shift-Clustering)
+
+A mean-shift clustering implementation in C++ and Eigen. It groups 2-D points without being told how many clusters exist, shifting each point toward its neighborhood mean until they settle together.
+
+`C++` `Eigen` `Clustering`
+
+<div align="center"><img src="./portfolio/Mean-Shift-Clustering/clusters.gif" alt="Mean-shift clusters over 600 points" width="560" /></div>
+
+```mermaid
+graph LR
+  IN["600-point dataset"] --> STEP["Shift each point to its neighbourhood mean"]
+  STEP --> CONV{"Converged?"}
+  CONV -->|no| STEP
+  CONV -->|yes| CLUS["Points that converge together form a cluster"]
 ```
 
 ### [cooda](https://github.com/shamekhing/cooda)
@@ -262,45 +330,11 @@ graph LR
   DISP --> HDMI["HDMI screen: one digit at a time"]
 ```
 
-### [fpga-snn](https://github.com/shamekhing/fpga-snn)
-
-An experimental spiking neural network accelerator for MNIST, where neurons carry information as spike timing instead of numbers. A Python trainer learns the weights and a SystemVerilog datapath replays them on a Gowin FPGA.
-
-`SystemVerilog` `Python` `SNN`
-
-<div align="center"><img src="./portfolio/fpga-snn/waveform.gif" alt="Waveform from the fpga-snn RTL simulation" width="640" /></div>
-
-```mermaid
-graph LR
-  IMG["MNIST digit"] --> ENC["Encoder: pixels to differential-time events"]
-  ENC --> SCHED["Scheduler: order events by time"]
-  SCHED --> NEU["128 LIF neurons: integrate and fire"]
-  NEU --> OUT["Spike counts: predicted class"]
-  TRAIN["Python training app"] -.->|learned weights| NEU
-```
-
 ### [fpga-usb](https://github.com/shamekhing/fpga-usb)
 
 A USB CDC serial device implemented on a Gowin FPGA through an external ULPI PHY. It turns the FPGA into a USB device a computer can talk to, with SystemVerilog testbenches and host-side tools.
 
 `SystemVerilog` `USB` `FPGA`
-### [Ahoy](https://github.com/shamekhing/Ahoy)
-
-A privacy-first messaging app in Flutter for phones that are near each other. It picks the best direct link (Wi-Fi Direct, LAN or Bluetooth), encrypts messages end to end so keys never leave the phone, and needs no server or account.
-
-`Dart` `Flutter` `Privacy`
-
-<div align="center"><img src="./portfolio/ahoy/screens.gif" alt="Ahoy chat app running on a phone" width="320" /></div>
-
-```mermaid
-flowchart LR
-  P1["Phone A"] --> APP["Chat app: discover · chat · profile"]
-  APP --> SEC["End-to-end encryption, keys never leave the phone"]
-  SEC --> STO["Encrypted message store"]
-  STO --> T["Direct links: Wi-Fi Direct · LAN · Bluetooth, strongest wins"]
-  T --> P2["Phone B"]
-```
-
 ### [fpga-skill](https://github.com/shamekhing/fpga-skill)
 
 A reusable engineering workflow for Gowin FPGA projects, distilled from many working sessions: one guide per task (RTL, simulation, synthesis, timing, programming, debugging) plus tested scripts and checklists that stop steps being skipped.
@@ -316,38 +350,6 @@ graph LR
   CHECK -->|no| FIX["Fix using recorded pitfalls"] --> DO
   CHECK -->|yes| BOARD["Build and test on the real board"]
   BOARD --> LESSON["Feed lessons back into the guides"]
-```
-
-### [Kalman GPS Tracking](https://github.com/shamekhing/Kalman-Filter-for-GPS-Tracking)
-
-A header-only C++ Kalman filter that turns jumpy GPS fixes into a smooth route. It predicts where the vehicle should be, blends that with each GPS measurement, and outputs a cleaned position and velocity track.
-
-`C++` `Eigen` `State estimation`
-
-<div align="center"><img src="./portfolio/Kalman-Filter-for-GPS-Tracking/track.gif" alt="Kalman-filtered track against raw GPS samples" width="560" /></div>
-
-```mermaid
-graph LR
-  RAW["Noisy GPS points"] --> PRED["Predict next state"]
-  PRED --> MIX["Correct with the GPS measurement<br/>(Kalman gain)"]
-  MIX --> OUT["Smoothed position and velocity"]
-  OUT -->|next fix| PRED
-```
-
-### [Mean-Shift Clustering](https://github.com/shamekhing/Mean-Shift-Clustering)
-
-A mean-shift clustering implementation in C++ and Eigen. It groups 2-D points without being told how many clusters exist, shifting each point toward its neighborhood mean until they settle together.
-
-`C++` `Eigen` `Clustering`
-
-<div align="center"><img src="./portfolio/Mean-Shift-Clustering/clusters.gif" alt="Mean-shift clusters over 600 points" width="560" /></div>
-
-```mermaid
-graph LR
-  IN["600-point dataset"] --> STEP["Shift each point to its neighbourhood mean"]
-  STEP --> CONV{"Converged?"}
-  CONV -->|no| STEP
-  CONV -->|yes| CLUS["Points that converge together form a cluster"]
 ```
 
 ### [pysuwi](https://github.com/shamekhing/pysuwi)
